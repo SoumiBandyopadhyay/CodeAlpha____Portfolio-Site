@@ -107,14 +107,7 @@ https://github.com/SoumiBandyopadhyay/CodeAlpha____Portfolio-Site
 3. Drag and drop project folder
 4. Deploy instantly
 
-## 📄 Resume
 
-Replace the placeholder resume link with your Google Drive resume URL:
-
-```html
-<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn">
-    Download Resume
-</a>
 ```
 
 ## 👩‍💻 Author
