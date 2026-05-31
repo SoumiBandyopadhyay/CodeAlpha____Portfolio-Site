@@ -29,8 +29,7 @@ portfolio/
 ├── index.html
 ├── README.md
 └── assets/
-    ├── images/
-    └── resume/
+    
 ```
 
 ## 🚀 Getting Started
