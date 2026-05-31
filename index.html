@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soumi Bandyopadhyay | Nature Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    color:white;
+    background:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80') center/cover fixed no-repeat;
+}
+
+/* Dark overlay */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:-1;
+}
+
+/* Header */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(20,80,20,0.95);
+    backdrop-filter:blur(12px);
+    box-shadow:0 2px 15px rgba(168,255,96,0.4);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#d4ff9d;
+    text-shadow:0 0 10px #a8ff60;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:12px;
+    padding:10px 18px;
+    border-radius:25px;
+    transition:.3s;
+    font-weight:600;
+}
+
+nav a:hover{
+    background:#a8ff60;
+    color:black;
+    box-shadow:0 0 15px #a8ff60;
+}
+
+/* Sections */
+section{
+    min-height:100vh;
+    padding:120px 8% 60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* Home */
+.hero{
+    text-align:center;
+}
+
+.hero-content{
+    max-width:950px;
+    margin:auto;
+    padding:45px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    animation:fadeUp 1s ease;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    color:#a8ff60;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    min-height:40px;
+    margin:15px 0;
+}
+
+.hero p{
+    max-width:750px;
+    margin:20px auto;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.welcome-box{
+    display:inline-block;
+    margin:15px 0;
+    padding:12px 25px;
+    background:rgba(168,255,96,0.2);
+    border:2px solid #a8ff60;
+    border-radius:30px;
+    color:#d4ff9d;
+    font-weight:bold;
+    box-shadow:0 0 15px rgba(168,255,96,0.5);
+}
+
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:12px 28px;
+    background:#a8ff60;
+    color:black;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 15px #a8ff60;
+}
+
+.social-links{
+    margin-top:20px;
+}
+
+.social-links a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    font-weight:bold;
+}
+
+.social-links a:hover{
+    color:#a8ff60;
+}
+
+/* Stats */
+.stats{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.stat-box{
+    width:160px;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(0,0,0,0.45);
+    transition:.3s;
+}
+
+.stat-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 15px rgba(168,255,96,0.4);
+}
+
+.stat-box h3{
+    color:#a8ff60;
+    font-size:1.8rem;
+}
+
+/* Titles */
+.section-title{
+    text-align:center;
+    color:#a8ff60;
+    font-size:2.6rem;
+    margin-bottom:40px;
+}
+
+/* Cards */
+.card-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.card{
+    width:320px;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 15px rgba(168,255,96,0.4);
+}
+
+.card h3{
+    color:#a8ff60;
+    margin-bottom:15px;
+}
+
+/* Skills */
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:rgba(255,255,255,0.08);
+    padding:18px;
+    border-radius:15px;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:#a8ff60;
+}
+
+/* Contact */
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:12px 0;
+    font-size:1.1rem;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(20,80,20,0.95);
+}
+
+/* Animation */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        padding:15px;
+    }
+
+    nav{
+        justify-content:center;
+        margin-top:10px;
+    }
+
+    nav a{
+        margin:5px;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .section-title{
+        font-size:2rem;
+    }
+
+    .hero-content{
+        padding:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌿 Something About Soumi</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="hero">
+    <div class="hero-content">
+
+        <h1>Soumi Bandyopadhyay</h1>
+
+        <div class="welcome-box">
+            🌿 Welcome to My Portfolio 🌿
+        </div>
+
+        <h2 id="typing"></h2>
+
+        <p>
+            Passionate BCA student with a strong interest in web development,
+            programming, UI design, and technology. I enjoy building creative,
+            responsive, and user-friendly websites while continuously learning
+            modern technologies.
+        </p>
+
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#skills" class="btn">View Skills</a>
+
+        <div class="social-links">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+			<a href="#">GeekForGeeks</a>
+            
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <h3>10+</h3>
+                <p>Projects</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>5+</h3>
+                <p>Skills</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Dedication</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>🎓 Education</h3>
+            <p>
+                Pursuing Bachelor of Computer Applications (BCA) and
+                developing strong foundations in programming,
+                web technologies, and software development.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💡 Interests</h3>
+            <p>
+                Web Development, Front-End Design,
+                JavaScript, Python, Data Analysis,
+                and building practical projects.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🚀 Goal</h3>
+            <p>
+                To become a professional Full-Stack Developer
+                and contribute to innovative software solutions.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            HTML
+            <div class="progress"><span style="width:90%"></span></div>
+        </div>
+
+        <div class="skill">
+            CSS
+            <div class="progress"><span style="width:85%"></span></div>
+        </div>
+
+        <div class="skill">
+            JavaScript
+            <div class="progress"><span style="width:75%"></span></div>
+        </div>
+
+        <div class="skill">
+            Python
+            <div class="progress"><span style="width:70%"></span></div>
+        </div>
+
+        <div class="skill">
+            Git & GitHub
+            <div class="progress"><span style="width:80%"></span></div>
+        </div>
+
+        <div class="skill">
+            Problem Solving
+            <div class="progress"><span style="width:85%"></span></div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>🌿 Nature Image Gallery</h3>
+            <p>
+                Responsive gallery with categories,
+                hover effects and smooth animations.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Portfolio Website</h3>
+            <p>
+                Personal portfolio website showcasing
+                skills, projects and achievements.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📊 Student Performance Prediction</h3>
+            <p>
+                Machine learning project for analyzing
+                student performance and predictions.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+
+    <div class="contact">
+        <p>📧 soumibandyopadhyay340@.com</p>
+        <p>📱 +91 9382621187</p>
+        <p>📍 India</p>
+
+        <a href="mailto:soumibandyopadhyay340@gmail.com" class="btn">
+            Send Email
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Soumi Bandyopadhyay | Thank You For Visiting My Portfolio
+</footer>
+
+<script>
+const text = "BCA Student | Web Developer | Programmer";
+let i = 0;
+
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80);
+    }
+}
+
+typeWriter();
+</script>
+
+</body>
+</html>
